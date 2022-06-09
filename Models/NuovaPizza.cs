@@ -1,12 +1,11 @@
-﻿
-
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace la_mia_pizzeria_post_ef.Models
 {
     [Table("Pizza")]
-    public class PizzaModel
+    public class NuovaPizza
     {
         [Key]
         public int Id { get; set; }
@@ -18,18 +17,17 @@ namespace la_mia_pizzeria_post_ef.Models
         public double Price { get; set; }
         public string? Photo { get; set; }
 
-        public PizzaModel(string Nome, string Descizione, double Prezzo, string Foto)
+        /*public NuovaPizza(string Nome, string Descizione, double Prezzo, string Foto)
         {
 
             this.Name = Nome;
             this.Description = Descizione;
             this.Price = Prezzo;
             this.Photo = Foto;
-        }
+        }*/
+        public byte[]? Data { get; set; }
 
-        public PizzaModel()
+        public NuovaPizza()
         { }
     }
-
-
 }

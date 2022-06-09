@@ -6,6 +6,7 @@
 
 @model la_mia_pizzeria_post_ef.Models.PizzasList
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,39 +21,42 @@
 	<div class="container mt-3">
 		<main role="main" class="pb-3">
 			<div class="text-center">
-				<h1 class="display-2">La Pizzeria di Mattia</h1>
-				
+				<h1 class="display-2">La mia pizzeria ciao</h1>
+				<div><a href="@Url.Action("CreaNuovaPizza", "Pizza")" class="crea-pizza btn-primary btn d-inline">Crea la tua Pizza</a></div>
+			
 				<table class="table">
-					<thead>
-						<tr>
-							<th scope="col"><h3>Nome</h3></th>
-							<th scope="col"><h3>Ingredienti</h3></th>
-							<th scope="col"><h3>Prezzo</h3></th>
-							<th scope="col"><h3>Immagine</h3></th>
-						</tr>
-					</thead>
-					<tbody>
-						@{
+				  <thead>
+					<tr>
+					  <th scope="col">Nome</th>
+					  <th scope="col">Ingredienti</th>
+					  <th scope="col">Prezzo</th>
+					 
+					</tr>
+				  </thead>
+				  <tbody>
+					  @{
 							foreach (var item in Model.pizzas)
 							{
 								<tr>
-									<td>
-										<h3><a href="@Url.Action("Show", "Pizza", new {@item.Id})">@item.Name</a></h3>
-										<div>
-											<a class="btn-warning btn d-inline" href="@Url.Action("AggiornaPizza", "Pizza", @item)">Aggiorna</a>
-											<a class="btn-danger btn d-inline" href="@Url.Action("RimuoviPizza", "Pizza", (PizzaModel)@item)">Cancella</a>
-										</div>
-									</td>
-									<td><h3>@item.Description</h3></td>
-									<td><h3>€@item.Price</h3></td>
-									<td><img src="@item.Photo"></td>
+								<th scope="row">
+									<h3><a class="link-success" href="@Url.Action("Show", "Pizza", new {@item.Id})">@item.Name</a></h3>
+									<div class="my-3">
+										<a class="btn-info btn d-inline" href="@Url.Action("AggiornaPizza", "Pizza", @item)">Aggiorna Pizza</a>
+									</div>
+									<div>
+										<a class="btn-danger btn d-inline" href="@Url.Action("RimuoviPizza", "Pizza", (PizzaModel)@item)">Cancella Pizza</a>
+									</div>
+
+								</th>
+								<td><h5>@item.Description</h5></td>
+								<td><h5>€@item.Price</h5></td>
+								<td><img src="@item.Photo"></td>
 								</tr>
 							}
 						}
-					</tbody>
+				  </tbody>
 				</table>
 			</div>
-
 		</main>
 	</div>
 
@@ -60,3 +64,5 @@
 
 </body>
 </html>
+
+

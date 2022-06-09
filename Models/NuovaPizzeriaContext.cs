@@ -1,10 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace la_mia_pizzeria_post_ef.Models
 {
-    public class PizzaContext : DbContext
+    public class NuovaPizzaContext : DbContext
     {
-        public DbSet<PizzaModel> Pizzas { get; set; }
+        public DbSet<NuovaPizza> Pizzas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -12,4 +15,3 @@ namespace la_mia_pizzeria_post_ef.Models
         }
     }
 }
-
